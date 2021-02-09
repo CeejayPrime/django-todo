@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ThingsTodo</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        body{
+            background-color: #628cb8;
+        }
+
+        input{
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        input::placeholder{
+            color: #d3d3d3;
+        }
+
+        .submit{
+            background-color: #6ba3e8;
+        }
+
+        .center-column{
+            width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color:#ffff;
+            border-radius: 3px;
+            box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+        }
+
+        .item-row{
+            background-color: #906abd;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 3px;
+            color: #ffff;
+            font-size: 16px;
+            box-shadow: 0px -1px 10px -4px rgba(0,0,0,0.75);
+        }
+
+        .btn-danger{
+            background-color: #ffae19;
+            border-color: #e59400;
+        }
+
+        #borders{
+            margin-bottom: 10px;
+        }
+
+        .todo-list{
+            background-color: blue;
+            margin: 2px;
+            padding: 2px;
+        }
+
+
+    </style>
+</head>
+    <body>
+        {% csrf_token %}
+        <header>
+            <h1>ThingsTodo</h1>
+        </header>
+        <div class="center-column">
+            {% load static %}
+            <a href="{% url 'CreateTask' %}"><img src="{% static 'tasks/create.png' %}" alt="create" width="50px" height="50px"><h4>Create Task</h4></a><br>
+            <a href="{% url 'TodoTasks' %}"><img src="{% static 'tasks/icon.png' %}" alt="create" width="50px" height="50px"><h4>Tasks</h4></a>
+        </div>
+
+    </body>
+</html>

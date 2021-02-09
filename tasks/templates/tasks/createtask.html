@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New Task</title>
+    <style>
+        .center-column{
+            width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color:#ffff;
+            border-radius: 3px;
+            box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+        }
+        #updateTask{
+            color: white
+        }
+
+        body{
+            background: #628cb8;
+        }
+
+        #borders{
+            margin-top: 10px;
+            background: #628cb8;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h3 id="updateTask">Create a Task</h3>
+    <div class="center-column">
+        <form method="POST" action="{% url 'CreateTask' %}">
+            {% csrf_token %}
+            <h4>New Task</h4>
+                {{form.title}}
+            <h4>Description</h4>
+                {{form.description}}<br>
+            <input id="borders" class= "btn btn-info" type="submit" name="Create Task">
+        </form>
+    </div>
+
+</body>
+</html>
