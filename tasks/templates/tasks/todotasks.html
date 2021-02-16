@@ -41,10 +41,11 @@
                 <div class="item-row">
                     <a class="btn btn-sm btn-info" href="{% url 'UpdateTask' task.id %}">Update</a>
                     <a class="btn btn-sm btn-danger" href="{% url 'delete' task.id %}">Delete Task</a>
+                    <a href="{% url 'SubTasks' %}">{{task}}</a>
                     {% if task.complete == True %}
                             <strike><a class="btn btn-primary" href="{% url 'SubTasks' %}">{{task}}</a></strike>
                         {% else %}
-                            <a href="{% url 'SubTasks' %}">{{task}}</a>
+
                     {% endif %}
 
                 </div>

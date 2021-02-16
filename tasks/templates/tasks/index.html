@@ -62,15 +62,36 @@
             margin: 2px;
             padding: 2px;
         }
+        .hello-msg{
+            font-size: 20px;
+            color: #fff;
+            margin-right: 20px;
+        }
 
 
     </style>
 </head>
     <body>
         {% csrf_token %}
-        <header>
-            <h1>ThingsTodo</h1>
-        </header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+                aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'index' %}">Home</a>
+                        </li>
+                    </ul>
+                </div>
+                <header>
+                    <h1>ThingsTodo</h1>
+                </header>
+            </nav>
+            <span class="hello-msg">Hello, {{request.user}}</span>
+            <span class="hello-msg"><a href="{% url 'LogoutUser' %}">Logout</a></span>
+
         <div class="center-column">
             {% load static %}
             <a href="{% url 'CreateTask' %}"><img src="{% static 'tasks/create.png' %}" alt="create" width="50px" height="50px"><h4>Create Task</h4></a><br>

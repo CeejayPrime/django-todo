@@ -35,17 +35,19 @@
     </style>
 </head>
 <body>
-    {% csrf_token %}
         <div class="center-column">
-            {% for subtask in subtasks %}
+            {% load static %}
+            {% csrf_token %}
+            <a href="{% url 'CreateSubTask' %}"><img src="{% static 'tasks/create.png' %}" alt="create" width="50px" height="50px"><h4>Create SubTasks</h4></a><br>
+                {% for subtask in subtasks %}
                 <div class="item-row">
-<!--                    <a class="btn btn-sm btn-info" href="{% url 'UpdateTask' task.id %}">Update</a>-->
-<!--                    <a class="btn btn-sm btn-danger" href="{% url 'delete' task.id %}">Delete Task</a>-->
+                    <a class="btn btn-sm btn-info" href="{% url 'UpdateSubTask' subtask.id %}">Update Task</a>
+                    <a class="btn btn-sm btn-danger" href="{% url 'DeleteSubTask' subtask.id %}">Delete Task</a>
 
                     {% if subtask.complete == True %}
-                        <strike>{{subtask}}</strike></>
+                        <strike>{{subtask}}</strike><br>
                     {% else %}
-                        <span>{{subtask}}</span>
+                        <span>{{subtask}}</span><br>
                     {% endif %}<br>
                 </div>
             {% endfor %}
