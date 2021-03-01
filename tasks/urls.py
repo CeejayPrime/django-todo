@@ -15,4 +15,5 @@ urlpatterns = [
     path('create_subtasks/', views.CreateSubTask, name="CreateSubTask"),
     path('update_subtask/<str:pk>/', views.UpdateSubTask, name="UpdateSubTask"),
     path('delete_subtask/<str:pk>/', views.DeleteSubTask, name="DeleteSubTask"),
+    path('user/', views.UserPage, name="UserPage")
 ]
